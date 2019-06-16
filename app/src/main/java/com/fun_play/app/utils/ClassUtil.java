@@ -2,7 +2,7 @@ package com.fun_play.app.utils;
 
 import android.arch.lifecycle.AndroidViewModel;
 
-import com.fun_play.app.viewmodel.none.NoViewModel;
+import com.fun_play.app.viewmodel.None.NoViewModel;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;

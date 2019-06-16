@@ -114,6 +114,14 @@ public abstract class BaseActivity<VM extends AndroidViewModel, SV extends ViewD
         });
     }
 
+    public void isHideToolBar(Boolean isHide){
+        if (isHide){
+            mBaseBinding.toolBar.setVisibility(View.GONE);
+        }else {
+            mBaseBinding.toolBar.setVisibility(View.VISIBLE);
+        }
+    }
+
     @Override
     public void setTitle(CharSequence text) {
         mBaseBinding.toolBar.setTitle(text);

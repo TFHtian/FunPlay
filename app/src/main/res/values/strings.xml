@@ -9,4 +9,9 @@
     <string name="edit_name">请输入用户名</string>
     <string name="edit_password">请输入密码</string>
 
+    <!--home_main-->
+    <string name="home_top_title_study">学</string>
+    <string name="home_top_title_watch">看</string>
+    <string name="home_top_title_listen">听</string>
+    <string name="home_top_title_personal">我</string>
 </resources>

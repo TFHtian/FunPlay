@@ -8,6 +8,10 @@
     <color name="colorTheme">#06bfbb</color>
     <color name="colorWhite">#ffffffff</color>
 
+    <!--tab未选中颜色-->
+    <color name="tabNormal">#FFD4DDDA</color>
+    <!--页面背景的颜色-->
+    <color name="color_page_bg">#F1F3F4</color>
     <color name="colorLoadText">#585858</color>
     <!--tab标签栏文字的颜色-->
     <color name="colorTabText">#585858</color>
@@ -18,6 +22,6 @@
     <!--item的水波纹颜色-->
     <color name="itemBackground">#DD7D7D7D</color>
     <!--item的5.0一下版本选择器颜色-->
-    <color name="itemLowBackground">#d9d9d9</color>
+    <color name="itemLowBackground">#9FA8A5</color>
 
 </resources>

@@ -1,4 +1,4 @@
-package com.fun_play.app.viewmodel.none;
+package com.fun_play.app.viewmodel.None;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;

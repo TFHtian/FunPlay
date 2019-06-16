@@ -3,11 +3,10 @@ package com.fun_play.app.UI.Start;
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.fun_play.app.MainActivity;
 import com.fun_play.app.R;
+import com.fun_play.app.UI.Main.HomeMainActivity;
 import com.fun_play.app.UI.User.LoginActivity;
 
 public class SplashActivity extends FragmentActivity {
@@ -23,11 +22,11 @@ public class SplashActivity extends FragmentActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(SplashActivity.this, LoginActivity.class));
-                overridePendingTransition(R.anim.activity_right_in, R.anim.activity_left_out);
+                startActivity(new Intent(SplashActivity.this, HomeMainActivity.class));
+                overridePendingTransition(R.anim.screen_zoom_in, R.anim.screen_zoom_out);
                 finish();
             }
-        }, 2000);
+        }, 200);
     }
 
     @Override
