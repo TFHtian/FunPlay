@@ -5,9 +5,11 @@
     <color name="colorAccent">#D81B60</color>
 
     <!--主题色-->
-    <color name="colorTheme">#06bfbb</color>
+    <color name="colorTheme">#fd7071</color>
     <color name="colorWhite">#ffffffff</color>
 
+    <!--title颜色-->
+    <color name="textTitleColor">#292928</color>
     <!--tab未选中颜色-->
     <color name="tabNormal">#FFD4DDDA</color>
     <!--页面背景的颜色-->
@@ -23,5 +25,16 @@
     <color name="itemBackground">#DD7D7D7D</color>
     <!--item的5.0一下版本选择器颜色-->
     <color name="itemLowBackground">#9FA8A5</color>
+    <color name="textDarkGrayColor">#717170</color>
+    <!--分割线-->
+    <color name="colorLine">#EBEBEB</color>
+    <color name="colorSubtitle">#999</color>
+
+    <!--study搜索背景色-->
+    <color name="study_search_bg">#66ffffff</color>
+
+    <color name="study_category_one">#fea501</color>
+    <color name="study_category_two">#fb7299</color>
+    <color name="study_category_three">#20c1fd</color>
 
 </resources>

@@ -14,4 +14,16 @@
     <string name="home_top_title_watch">看</string>
     <string name="home_top_title_listen">听</string>
     <string name="home_top_title_personal">我</string>
+
+    <!--tab_study-->
+    <string name="loading_study_data">正在为您加载学习数据..</string>
+    <string name="loading_study_wait">亲~耐心等候</string>
+    <string name="search">搜索</string>
+    <string name="study_category_one">安卓之家</string>
+    <string name="study_category_two">体系导航</string>
+    <string name="study_category_three">干货定制</string>
+    <string name="no_name">佚名</string>
+    <string name="loading">加载中..</string>
+    <string name="news_advert">广告</string>
+
 </resources>

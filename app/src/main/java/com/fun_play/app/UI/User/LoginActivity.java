@@ -9,6 +9,7 @@ import com.fun_play.app.UI.Main.HomeMainActivity;
 import com.fun_play.app.R;
 import com.fun_play.app.base.BaseUI.BaseActivity;
 import com.fun_play.app.databinding.ActivityLoginBinding;
+import com.fun_play.app.utils.UIManager;
 import com.fun_play.app.viewmodel.user.LoginViewModel;
 
 public class LoginActivity extends BaseActivity<LoginViewModel, ActivityLoginBinding> {
@@ -23,9 +24,7 @@ public class LoginActivity extends BaseActivity<LoginViewModel, ActivityLoginBin
     }
 
     public void login(View view){
-        startActivity(new Intent(LoginActivity.this, HomeMainActivity.class));
-        overridePendingTransition(R.anim.activity_bottom_silent, R.anim.activity_bottom_out);
-        finish();
+       UIManager.finishAnimVertical(LoginActivity.this);
     }
 
     public static void start(Context mContext) {
@@ -33,4 +32,9 @@ public class LoginActivity extends BaseActivity<LoginViewModel, ActivityLoginBin
         mContext.startActivity(intent);
     }
 
+    @Override
+    public void onBackClick(View view) {
+        super.onBackClick(view);
+        UIManager.finishAnimVertical(LoginActivity.this);
+    }
 }

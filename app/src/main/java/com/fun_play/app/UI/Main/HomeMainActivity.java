@@ -30,6 +30,7 @@ import com.fun_play.app.databinding.NavHeaderHomeMainBinding;
 import com.fun_play.app.utils.CommonUtils;
 import com.fun_play.app.utils.PerfectClickListener;
 import com.fun_play.app.utils.ToastUtil;
+import com.fun_play.app.utils.UIManager;
 import com.fun_play.app.view.MyFragmentPagerAdapter;
 import com.fun_play.app.view.statusbar.StatusBarUtil;
 import com.fun_play.app.viewmodel.homeMain.HomeMainViewModel;
@@ -120,7 +121,7 @@ public class HomeMainActivity extends BaseActivity<HomeMainViewModel, ActivityHo
         MyFragmentPagerAdapter adapter = new MyFragmentPagerAdapter(getSupportFragmentManager(), mFragmentList);
         vpContent.setAdapter(adapter);
         // 设置ViewPager最大缓存的页面个数(cpu消耗少)
-        vpContent.setOffscreenPageLimit(2);
+        vpContent.setOffscreenPageLimit(3);
         vpContent.addOnPageChangeListener(this);
 
         setSupportActionBar(toolbar);
@@ -143,8 +144,7 @@ public class HomeMainActivity extends BaseActivity<HomeMainViewModel, ActivityHo
 
                         break;
                     case R.id.ll_nav_login://登陆
-                        LoginActivity.start(HomeMainActivity.this);
-                        overridePendingTransition(R.anim.activity_bottom_in, R.anim.activity_bottom_silent);
+                        UIManager.switcherAnimVertical(HomeMainActivity.this,LoginActivity.class);
                         break;
                     case R.id.ll_nav_exit://退出
 

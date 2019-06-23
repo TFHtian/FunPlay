@@ -21,6 +21,9 @@
     <dimen name="home_nav_item_icon">20dp</dimen>
     <dimen name="home_nav_layout_padding">15dp</dimen>
     <dimen name="home_nav_layout_height">48dp</dimen>
+    <dimen name="home_banner_height">150dp</dimen>
+    <dimen name="home_banner_margin">40dp</dimen>
+    <dimen name="home_category_height">55dp</dimen>
 
 
     <dimen name="px_0">0px</dimen>

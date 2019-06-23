@@ -105,13 +105,17 @@ public abstract class BaseActivity<VM extends AndroidViewModel, SV extends ViewD
         mBaseBinding.toolBar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    finishAfterTransition();
-                } else {
-                    onBackPressed();
-                }
+                onBackClick(v);
             }
         });
+    }
+
+    public void onBackClick(View view) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            finishAfterTransition();
+        } else {
+            onBackPressed();
+        }
     }
 
     public void isHideToolBar(Boolean isHide){
@@ -239,4 +243,8 @@ public abstract class BaseActivity<VM extends AndroidViewModel, SV extends ViewD
             this.mCompositeDisposable.dispose();
         }
     }
+
+
+
+
 }

@@ -66,4 +66,11 @@
         <item name="android:textColor">@color/colorContent</item>
     </style>
 
+    <!--横向分割线-->
+    <style name="horizontal_line">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dp_1</item>
+        <item name="android:background">@color/colorLine</item>
+    </style>
+
 </resources>

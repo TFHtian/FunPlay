@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.text.TextUtils" />
+
+        <import type="com.fun_play.app.utils.TimeUtil" />
+
+        <variable
+            name="newsBean"
+            type="com.fun_play.app.datamanager.bean.study.NewsDetail.ItemBean" />
+    </data>
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:paddingTop="@dimen/dp_10"
+        android:layout_width="match_parent"
+        android:paddingLeft="@dimen/dp_15"
+        android:paddingRight="@dimen/dp_15"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite">
+        <TextView
+            android:id="@+id/tv_title"
+            android:maxLines="3"
+            android:ellipsize="end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_15sp"
+            android:textColor="@color/textTitleColor"
+            android:text="@{newsBean.title}"/>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10">
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:gravity="center"
+                android:layout_weight="1"
+                android:id="@+id/iv_detail"
+                android:layout_height="100dp"
+                android:scaleType="centerCrop"
+                android:layout_width="match_parent"
+                tools:background="@color/color_page_bg"
+                app:riv_corner_radius="@dimen/dp_5"/>
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10">
+            <TextView
+                android:id="@+id/tv_source"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_11sp"
+                android:textColor="@color/colorSubtitle"
+                android:text="@{newsBean.source}"/>
+            <TextView
+                android:id="@+id/tv_comment_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_11sp"
+                android:textColor="@color/colorSubtitle"
+                android:layout_toRightOf="@+id/tv_source"
+                android:layout_marginLeft="@dimen/dp_15"
+                android:text="@{newsBean.commentSize}"/>
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_11sp"
+                android:textColor="@color/colorSubtitle"
+                android:layout_alignParentRight="true"
+                android:text='@{TimeUtil.getTranslateTime(newsBean.updateTime)}'/>
+        </RelativeLayout>
+        <View
+            style="@style/horizontal_line"
+            android:layout_marginTop="@dimen/dp_10"/>
+    </LinearLayout>
+
+</layout>
