@@ -503,44 +503,65 @@ public class NewsDetail implements Serializable {
 
         public int getNewsItemType() {
             int newsItemType = ItemBean.TYPE_DOC_TITLEIMG;
-            if (type.equals(NewsUtils.TYPE_DOC)) {
-                if (style.getView() != null) {
-                    if (style.getView().equals(NewsUtils.VIEW_TITLEIMG)) {
-                        newsItemType = NewsDetail.ItemBean.TYPE_DOC_TITLEIMG;
-                    } else if (style.getView().equals(NewsUtils.VIEW_SLIDEIMG)){
-                        newsItemType = NewsDetail.ItemBean.TYPE_DOC_SLIDEIMG;
+            switch (type){
+                case NewsUtils.TYPE_DOC:
+                    //新闻类型
+                    if (style!= null) {
+                        if (style.getView().equals(NewsUtils.VIEW_TITLEIMG)) {
+                            newsItemType = NewsDetail.ItemBean.TYPE_DOC_TITLEIMG;
+                        } else if (style.getView().equals(NewsUtils.VIEW_SLIDEIMG)){
+                            newsItemType = NewsDetail.ItemBean.TYPE_DOC_SLIDEIMG;
+                        }else {
+                            newsItemType = NewsDetail.ItemBean.TYPE_DOC_TITLEIMG;
+                        }
                     }else {
                         newsItemType = NewsDetail.ItemBean.TYPE_DOC_TITLEIMG;
                     }
-                }
-            } else if (type.equals(NewsUtils.TYPE_ADVERT)) {
-                if (style != null) {
-                    if (style.getView().equals(NewsUtils.VIEW_TITLEIMG)) {
+                    break;
+                case NewsUtils.TYPE_ADVERT:
+                    //广告类型
+                    if (style != null) {
+                        if (style.getView().equals(NewsUtils.VIEW_TITLEIMG)) {
+                            newsItemType = NewsDetail.ItemBean.TYPE_ADVERT_TITLEIMG;
+                        } else if (style.getView().equals(NewsUtils.VIEW_SLIDEIMG)) {
+                            newsItemType = NewsDetail.ItemBean.TYPE_ADVERT_SLIDEIMG;
+                        } else {
+                            newsItemType = NewsDetail.ItemBean.TYPE_ADVERT_LONGIMG;
+                        }
+                    } else {
                         newsItemType = NewsDetail.ItemBean.TYPE_ADVERT_TITLEIMG;
-                    } else if (style.getView().equals(NewsUtils.VIEW_SLIDEIMG)) {
-                        newsItemType = NewsDetail.ItemBean.TYPE_ADVERT_SLIDEIMG;
-                    } else {
-                        newsItemType = NewsDetail.ItemBean.TYPE_ADVERT_LONGIMG;
                     }
-                } else {
-                    //bean.itemType = NewsDetail.ItemBean.TYPE_ADVERT_TITLEIMG;
-                    newsItemType = ItemBean.TYPE_DOC_TITLEIMG;
-                }
-            } else if (type.equals(NewsUtils.TYPE_SLIDE)) {
-                if (link.getType().equals("doc")) {
-                    if (style.getView().equals(NewsUtils.VIEW_SLIDEIMG)) {
-                        newsItemType = NewsDetail.ItemBean.TYPE_DOC_SLIDEIMG;
+                    break;
+                case NewsUtils.TYPE_SLIDE:
+                    //图片类型新闻
+                    if (link.getType().equals(NewsUtils.TYPE_DOC)) {
+                        if (style.getView().equals(NewsUtils.VIEW_SLIDEIMG)) {
+                            newsItemType = NewsDetail.ItemBean.TYPE_DOC_SLIDEIMG;
+                        } else {
+                            newsItemType = NewsDetail.ItemBean.TYPE_DOC_TITLEIMG;
+                        }
                     } else {
+                        newsItemType = NewsDetail.ItemBean.TYPE_SLIDE;
+                    }
+                    break;
+                case NewsUtils.TYPE_PHVIDEO:
+                    //视频类型新闻
+                    newsItemType = NewsDetail.ItemBean.TYPE_PHVIDEO;
+                    break;
+                default:
+                    //其他都默认为单张图片新闻
+                    if (style!= null) {
+                        if (style.getView().equals(NewsUtils.VIEW_TITLEIMG)) {
+                            newsItemType = NewsDetail.ItemBean.TYPE_DOC_TITLEIMG;
+                        } else if (style.getView().equals(NewsUtils.VIEW_SLIDEIMG)){
+                            newsItemType = NewsDetail.ItemBean.TYPE_DOC_SLIDEIMG;
+                        }else {
+                            newsItemType = NewsDetail.ItemBean.TYPE_DOC_TITLEIMG;
+                        }
+                    }else {
                         newsItemType = NewsDetail.ItemBean.TYPE_DOC_TITLEIMG;
                     }
-                } else {
-                    newsItemType = NewsDetail.ItemBean.TYPE_SLIDE;
-                }
-            } else if (type.equals(NewsUtils.TYPE_PHVIDEO)) {
-                newsItemType = NewsDetail.ItemBean.TYPE_PHVIDEO;
-            } else {
-                // 凤凰新闻 类型比较多，目前只处理能处理的类型
-                newsItemType = ItemBean.TYPE_DOC_TITLEIMG;
+                    break;
             }
             return newsItemType;
         }

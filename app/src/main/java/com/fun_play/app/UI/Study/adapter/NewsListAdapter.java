@@ -1,6 +1,7 @@
 package com.fun_play.app.UI.Study.adapter;
 
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.ViewGroup;
 
 
@@ -24,7 +25,7 @@ public class NewsListAdapter extends BaseRecyclerViewAdapter<NewsDetail.ItemBean
     @Override
     public BaseRecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
         BaseRecyclerViewHolder viewHolder = null;
-        switch (getItemViewType(i)){
+        switch (i){
             case NewsDetail.ItemBean.TYPE_DOC_TITLEIMG:
                 viewHolder = new NewDocTitleImageViewHolder(parent, R.layout.news_doc_title_image_item);
                 break;

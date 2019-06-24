@@ -70,7 +70,7 @@ public class UIManager {
             intent.putExtras(bundle);
         }
         context.startActivity(intent);
-        ((Activity) context).overridePendingTransition(R.anim.activity_right_in, R.anim.activity_left_out);
+        ((Activity) context).overridePendingTransition(R.anim.activity_right_in, R.anim.activity_anim_no);
     }
 
     /**
@@ -103,7 +103,7 @@ public class UIManager {
      */
     public static void finishAnimHorizontal(Context context) {
         ((Activity) context).finish();
-        ((Activity) context).overridePendingTransition(R.anim.activity_left_out, R.anim.activity_right_in);
+        ((Activity) context).overridePendingTransition(R.anim.activity_anim_no, R.anim.activity_left_out);
     }
 
     /**

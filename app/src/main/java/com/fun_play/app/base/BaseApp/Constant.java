@@ -33,7 +33,6 @@ public class Constant {
         filterBeans .add(new NewFilterBean("科技","KJ123,FOCUSKJ123"));
         filterBeans .add(new NewFilterBean("历史","LS153,FOCUSLS153"));
         filterBeans .add(new NewFilterBean("汽车","QC45,FOCUSQC45"));
-        filterBeans .add(new NewFilterBean("社会","SH133,FOCUSSH133"));
         filterBeans .add(new NewFilterBean("时尚","SS78,FOCUSSS78"));
         filterBeans .add(new NewFilterBean("国学","GXPD,FOCUSGXPD"));
         filterBeans .add(new NewFilterBean("文化","WH25,FOCUSWH25"));

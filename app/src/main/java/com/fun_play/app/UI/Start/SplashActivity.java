@@ -8,6 +8,7 @@ import android.os.Bundle;
 import com.fun_play.app.R;
 import com.fun_play.app.UI.Main.HomeMainActivity;
 import com.fun_play.app.UI.User.LoginActivity;
+import com.fun_play.app.utils.UIManager;
 
 public class SplashActivity extends FragmentActivity {
 
@@ -22,7 +23,7 @@ public class SplashActivity extends FragmentActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(SplashActivity.this, HomeMainActivity.class));
+                UIManager.switcherNormal(SplashActivity.this,HomeMainActivity.class);
                 overridePendingTransition(R.anim.screen_zoom_in, R.anim.screen_zoom_out);
                 finish();
             }

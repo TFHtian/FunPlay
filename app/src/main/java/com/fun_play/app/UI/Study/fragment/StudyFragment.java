@@ -87,7 +87,9 @@ public class StudyFragment extends BaseFragment<StudyViewModel, FragmentStudyBin
         if (!mIsPrepared || !mIsVisible || !mIsFirst) {
             return;
         }
-        viewModel.getWanAndroidBanner();
+        if (mIsPrepared && mIsVisible &&mIsFirst){
+            viewModel.getWanAndroidBanner();
+        }
     }
 
     public void initView(){
@@ -175,6 +177,9 @@ public class StudyFragment extends BaseFragment<StudyViewModel, FragmentStudyBin
     //玩安卓轮播图
     @Override
     public void WanAndroidBanner(WanAndroidBannerBean wanAndroidBannerBean) {
+        if (mIsFirst){
+            mIsFirst = false;
+        }
         showBannerView(wanAndroidBannerBean.getData());
         //成功获取banner之后再去获取新闻列表
         isLoadData = true;
