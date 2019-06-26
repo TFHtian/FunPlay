@@ -56,7 +56,7 @@ public class NewsDetailActivity extends BaseStatusBarActivity<NewsDetailViewMode
         showContentView();
         //封面图
         if (newsArticleBean!=null&&newsArticleBean.getBody()!=null){
-            GlideUtil.displayGif(newsArticleBean.getBody().getThumbnail(), bindingView.imCover);
+            GlideUtil.displayGaussian(NewsDetailActivity.this,newsArticleBean.getBody().getThumbnail(), bindingView.imCover);
             bindingView.setDetailBean(newsArticleBean.getBody());
             initWebView(newsArticleBean.getBody().getText());
         }

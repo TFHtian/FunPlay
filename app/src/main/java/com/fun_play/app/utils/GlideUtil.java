@@ -1,10 +1,13 @@
 package com.fun_play.app.utils;
 
+import android.content.Context;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.fun_play.app.R;
+
+import jp.wasabeef.glide.transformations.BlurTransformation;
 
 public class GlideUtil {
 
@@ -58,6 +61,18 @@ public class GlideUtil {
 //                .crossFade(1000)
 //                .diskCacheStrategy(DiskCacheStrategy.SOURCE)// 缓存图片源文件（解决加载gif内存溢出问题）
 //                .into(new GlideDrawableImageViewTarget(imageView, 1));
+                .into(imageView);
+    }
+
+    public static void displayGaussian(Context context, String url, ImageView imageView) {
+        // "23":模糊度；"4":图片缩放4倍后再进行模糊
+        Glide.with(context)
+                .load(url)
+                .transition(DrawableTransitionOptions.withCrossFade())
+                .error(R.drawable.stackblur_default)
+                .placeholder(R.drawable.stackblur_default)
+                .transition(DrawableTransitionOptions.withCrossFade(500))
+                .transform(new BlurTransformation(10, 1))
                 .into(imageView);
     }
 
