@@ -3,6 +3,7 @@ package com.fun_play.app.UI.User;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 
 import com.fun_play.app.UI.Main.HomeMainActivity;
@@ -36,5 +37,11 @@ public class LoginActivity extends BaseActivity<LoginViewModel, ActivityLoginBin
     public void onBackClick(View view) {
         super.onBackClick(view);
         UIManager.finishAnimVertical(LoginActivity.this);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        UIManager.finishAnimVertical(LoginActivity.this);
+        return super.onKeyDown(keyCode, event);
     }
 }

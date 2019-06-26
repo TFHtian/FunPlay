@@ -30,5 +30,8 @@ public class UrlStore {
     //获取新闻列表接口
     public static final String Get_News_List_Data = "ClientNews";
 
+    //新闻详情接口
+    public static final String Get_News_Detail = "ipadtestdoc";
+
 }
 

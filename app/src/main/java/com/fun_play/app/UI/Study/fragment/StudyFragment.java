@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import com.flyco.tablayout.listener.OnTabSelectListener;
+import com.fun_play.app.UI.Study.activity.NewsDetailActivity;
 import com.fun_play.app.UI.Study.adapter.NewsListAdapter;
 import com.fun_play.app.datamanager.bean.study.FilterBean;
 import com.fun_play.app.datamanager.bean.study.GankIoDataBean;
@@ -29,6 +30,7 @@ import com.fun_play.app.databinding.FragmentStudyBinding;
 import com.fun_play.app.utils.DensityUtil;
 import com.fun_play.app.utils.GlideUtil;
 import com.fun_play.app.utils.PerfectClickListener;
+import com.fun_play.app.utils.UIManager;
 import com.fun_play.app.view.CustomFooter;
 import com.fun_play.app.viewmodel.study.StudyViewModel;
 import com.github.ybq.android.spinkit.style.ChasingDots;
@@ -44,7 +46,7 @@ import java.util.List;
 import me.jingbin.sbanner.config.ScaleRightTransformer;
 import me.jingbin.sbanner.holder.BannerViewHolder;
 
-public class StudyFragment extends BaseFragment<StudyViewModel, FragmentStudyBinding> implements WanAndroidBannerCallback {
+public class StudyFragment extends BaseFragment<StudyViewModel, FragmentStudyBinding> implements WanAndroidBannerCallback,NewsListAdapter.NewsListListener {
 
     private boolean mIsFirst = true;
     private boolean mIsPrepared = false;
@@ -110,7 +112,7 @@ public class StudyFragment extends BaseFragment<StudyViewModel, FragmentStudyBin
         bindingView.orderTab.setCurrentTab(currentSelected);//默认选择第一个
 
         //新闻列表
-        newsListAdapter = new NewsListAdapter();
+        newsListAdapter = new NewsListAdapter(this);
         bindingView.recyclerGank.setLayoutManager(new LinearLayoutManager(getActivity()));
         bindingView.recyclerGank.setAdapter(newsListAdapter);
         bindingView.header.setColorSchemeColors(getResources().getColor(R.color.colorTheme));
@@ -264,6 +266,14 @@ public class StudyFragment extends BaseFragment<StudyViewModel, FragmentStudyBin
                 .start();
         bindingView.banner.stopAutoPlay();
         isLoadBanner = true;
+    }
+
+    //新闻item点击监听
+    @Override
+    public void clickNews(String id) {
+        Bundle bundle = new Bundle();
+        bundle.putString(Constant.AID,id);
+        UIManager.switcherAnimHorizontal(getActivity(), NewsDetailActivity.class,bundle);
     }
 
     class CustomViewHolder implements BannerViewHolder<WanAndroidBannerBean.DataBean> {

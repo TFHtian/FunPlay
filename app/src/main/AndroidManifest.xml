@@ -37,6 +37,10 @@
             android:name=".UI.User.LoginActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <!--新闻详情界面-->
+        <activity
+            android:name=".UI.Study.activity.NewsDetailActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

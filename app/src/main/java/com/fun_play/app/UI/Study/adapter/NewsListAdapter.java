@@ -2,6 +2,7 @@ package com.fun_play.app.UI.Study.adapter;
 
 import android.support.annotation.NonNull;
 import android.util.Log;
+import android.view.View;
 import android.view.ViewGroup;
 
 
@@ -20,6 +21,16 @@ import com.fun_play.app.utils.GlideUtil;
 
 
 public class NewsListAdapter extends BaseRecyclerViewAdapter<NewsDetail.ItemBean> {
+
+    private NewsListListener newsListListener;
+
+    public NewsListAdapter(NewsListListener newsListListener) {
+        this.newsListListener = newsListListener;
+    }
+
+    public interface NewsListListener{
+        void clickNews(String id);
+    }
 
     @NonNull
     @Override
@@ -63,6 +74,12 @@ public class NewsListAdapter extends BaseRecyclerViewAdapter<NewsDetail.ItemBean
             binding.setNewsBean(object);
             GlideUtil.displayGif(object.getThumbnail(), binding.ivThumb);
             binding.executePendingBindings();
+            binding.linDocTitle.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    newsListListener.clickNews(object.getDocumentId());
+                }
+            });
         }
     }
 
@@ -84,6 +101,12 @@ public class NewsListAdapter extends BaseRecyclerViewAdapter<NewsDetail.ItemBean
                 e.printStackTrace();
             }
             binding.executePendingBindings();
+            binding.linDocSlide.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    newsListListener.clickNews(object.getDocumentId());
+                }
+            });
         }
     }
 

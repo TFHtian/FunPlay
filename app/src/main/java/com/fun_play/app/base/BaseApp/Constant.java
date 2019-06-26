@@ -10,6 +10,7 @@ public class Constant {
 
     public static final String All = "all";
     public static final String NewsCommonId = "SYLB10,SYDT10";
+    public static final String AID = "aid";
 
     //学习中的tab
     public static List<FilterBean> getStudyTab(){
