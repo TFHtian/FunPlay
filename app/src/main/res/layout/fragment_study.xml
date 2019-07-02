@@ -80,6 +80,7 @@
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/study_home_content_layout_shape">
                                 <include
+                                    android:id="@+id/include"
                                     layout="@layout/study_home_category_layout"/>
                             </LinearLayout>
                         </LinearLayout>

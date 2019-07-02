@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import com.flyco.tablayout.listener.OnTabSelectListener;
+import com.fun_play.app.UI.Study.activity.AndroidFamilyActivity;
+import com.fun_play.app.UI.Study.activity.GankActivity;
 import com.fun_play.app.UI.Study.activity.NewsDetailActivity;
 import com.fun_play.app.UI.Study.adapter.NewsListAdapter;
 import com.fun_play.app.datamanager.bean.study.FilterBean;
@@ -120,6 +122,10 @@ public class StudyFragment extends BaseFragment<StudyViewModel, FragmentStudyBin
     }
 
     public void initListener(){
+        //类别监听
+        bindingView.include.llCategoryOne.setOnClickListener(listener);
+        bindingView.include.llCategoryTwo.setOnClickListener(listener);
+        bindingView.include.llCategoryThree.setOnClickListener(listener);
         //tab监听
         bindingView.orderTab.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
@@ -275,6 +281,23 @@ public class StudyFragment extends BaseFragment<StudyViewModel, FragmentStudyBin
         bundle.putString(Constant.AID,id);
         UIManager.switcherAnimHorizontal(getActivity(), NewsDetailActivity.class,bundle);
     }
+
+    //类别监听
+    private PerfectClickListener listener = new PerfectClickListener() {
+        @Override
+        protected void onNoDoubleClick(View v) {
+            switch (v.getId()){
+                case R.id.ll_category_one:
+                    UIManager.switcherAnimHorizontal(getActivity(), AndroidFamilyActivity.class);
+                    break;
+                case R.id.ll_category_two:
+                    break;
+                case R.id.ll_category_three:
+                    UIManager.switcherAnimHorizontal(getActivity(),GankActivity.class);
+                    break;
+            }
+        }
+    };
 
     class CustomViewHolder implements BannerViewHolder<WanAndroidBannerBean.DataBean> {
 

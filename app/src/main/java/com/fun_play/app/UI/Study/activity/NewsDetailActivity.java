@@ -6,7 +6,6 @@ import android.support.v7.app.ActionBar;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
-import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -15,14 +14,15 @@ import android.webkit.WebViewClient;
 import com.fun_play.app.ModelCallback.Study.NewsDetailDataCallback;
 import com.fun_play.app.R;
 import com.fun_play.app.base.BaseApp.Constant;
-import com.fun_play.app.base.BaseUI.BaseStatusBarActivity;
+import com.fun_play.app.base.BaseUI.BaseActivity;
 import com.fun_play.app.databinding.ActivityNewsDetailBinding;
 import com.fun_play.app.datamanager.bean.study.NewsArticleBean;
 import com.fun_play.app.utils.GlideUtil;
 import com.fun_play.app.utils.UIManager;
 import com.fun_play.app.viewmodel.study.NewsDetailViewModel;
+import com.jaeger.library.StatusBarUtil;
 
-public class NewsDetailActivity extends BaseStatusBarActivity<NewsDetailViewModel, ActivityNewsDetailBinding> implements NewsDetailDataCallback {
+public class NewsDetailActivity extends BaseActivity<NewsDetailViewModel, ActivityNewsDetailBinding> implements NewsDetailDataCallback {
 
     private String aid;
 
@@ -31,10 +31,15 @@ public class NewsDetailActivity extends BaseStatusBarActivity<NewsDetailViewMode
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_detail);
         isHideToolBar(true);
-        initListener();
+        initToolBar();
         bindingView.setViewModel(viewModel);
         viewModel.SetCallback(this);
         init();
+    }
+
+    @Override
+    public void setStatusBar() {
+        StatusBarUtil.setTranslucentForImageView(this,0,bindingView.toolBar);
     }
 
     public void init(){
@@ -42,8 +47,16 @@ public class NewsDetailActivity extends BaseStatusBarActivity<NewsDetailViewMode
         viewModel.getNewsDetail(aid);
     }
 
-    protected void initListener() {
-        bindingView.imBack.setOnClickListener(new View.OnClickListener() {
+    protected void initToolBar() {
+        setSupportActionBar(bindingView.toolBar);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            //去除默认Title显示
+            actionBar.setDisplayShowTitleEnabled(false);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setHomeAsUpIndicator(R.drawable.icon_back);
+        }
+        bindingView.toolBar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 UIManager.finishAnimHorizontal(NewsDetailActivity.this);

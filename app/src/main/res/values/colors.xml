@@ -29,7 +29,8 @@
     <!--分割线-->
     <color name="colorLine">#EBEBEB</color>
     <color name="colorSubtitle">#999</color>
-
+    <!--选择分类按下颜色-->
+    <color name="colorChoosePress">#DDD</color>
     <!--study搜索背景色-->
     <color name="study_search_bg">#66ffffff</color>
 

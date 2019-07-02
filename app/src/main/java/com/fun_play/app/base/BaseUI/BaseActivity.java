@@ -22,9 +22,8 @@ import android.widget.RelativeLayout;
 import com.fun_play.app.R;
 import com.fun_play.app.databinding.ActivityBaseBinding;
 import com.fun_play.app.utils.ClassUtil;
-import com.fun_play.app.utils.CommonUtils;
 import com.fun_play.app.utils.PerfectClickListener;
-import com.fun_play.app.view.statusbar.StatusBarUtil;
+import com.jaeger.library.StatusBarUtil;
 
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
@@ -64,7 +63,7 @@ public abstract class BaseActivity<VM extends AndroidViewModel, SV extends ViewD
         getWindow().setContentView(mBaseBinding.getRoot());
 
         // 设置透明状态栏，兼容4.4
-        StatusBarUtil.setColor(this, CommonUtils.getColor(R.color.colorTheme), 0);
+        setStatusBar();
         loadingView = ((ViewStub) findViewById(R.id.vs_loading)).inflate();
         ImageView img = loadingView.findViewById(R.id.img_progress);
 
@@ -88,6 +87,11 @@ public abstract class BaseActivity<VM extends AndroidViewModel, SV extends ViewD
         if (viewModelClass != null) {
             this.viewModel = ViewModelProviders.of(this).get(viewModelClass);
         }
+    }
+
+    public void setStatusBar(){
+//        StatusBarUtil.setColor(this, CommonUtils.getColor(R.color.colorTheme), 0);
+        StatusBarUtil.setColor(this, getResources().getColor(R.color.colorTheme),0);
     }
 
     /**

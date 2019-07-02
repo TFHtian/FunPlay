@@ -25,6 +25,10 @@
     <string name="no_name">佚名</string>
     <string name="loading">加载中..</string>
     <string name="news_advert">广告</string>
+    <string name="gank_title">干货定制</string>
+    <string name="select_category">选择分类</string>
+    <string name="play_android">玩安卓</string>
+    <string name="large_android">大安卓</string>
 
     <string name="lorem">
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit.

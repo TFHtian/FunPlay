@@ -8,20 +8,19 @@ import java.util.List;
 
 public class Constant {
 
-    public static final String All = "all";
+    public static final String All = "全部";
+    public static final String All_Type = "all";
+    public static final String IOS = "IOS";
+    public static final String IOS_Type = "iOS";
+    public static final String App = "App";
+    public static final String Web = "前端";
+    public static final String Movie = "休息视频";
+    public static final String Source = "拓展资源";
+    public static final String GANK_CALA = "gank_cala";
+
+
     public static final String NewsCommonId = "SYLB10,SYDT10";
     public static final String AID = "aid";
-
-    //学习中的tab
-    public static List<FilterBean> getStudyTab(){
-        List<FilterBean> filterBeans = new ArrayList<>();
-        filterBeans .add(new FilterBean("全部","all"));
-        filterBeans .add(new FilterBean("IOS","iOS"));
-        filterBeans .add(new FilterBean("前端","前端"));
-        filterBeans.add(new FilterBean("App","App"));
-        filterBeans.add(new FilterBean("拓展资源","拓展资源"));
-        return filterBeans;
-    }
 
     //新闻tab
     public static List<NewFilterBean> getNewsTab(){
