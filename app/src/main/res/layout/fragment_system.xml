@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_page_bg">
+        <com.yanzhenjie.recyclerview.swipe.SwipeMenuRecyclerView
+            android:id="@+id/recycle_system"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/ll_loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_20">
+                <ImageView
+                    android:id="@+id/iv_loading"
+                    android:layout_width="@dimen/dp_40"
+                    android:layout_height="@dimen/dp_20"
+                    android:drawablePadding="@dimen/dp_5"/>
+                <TextView
+                    style="@style/text_tab_style"
+                    android:textSize="@dimen/text_14sp"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:text="@string/loading"/>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</layout>

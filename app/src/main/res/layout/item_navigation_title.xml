@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="bean"
+            type="com.fun_play.app.datamanager.bean.study.NavigationBean.DataBean" />
+
+        <import type="android.text.Html" />
+    </data>
+
+    <TextView
+        android:gravity="center"
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/dp_15"
+        android:paddingBottom="@dimen/dp_15"
+        android:background="@drawable/select_navigation_title_bg"
+        android:text="@{Html.fromHtml(bean.name)}"
+        android:textColor="@color/select_navigation_title_text"
+        android:textSize="14sp" />
+</layout>

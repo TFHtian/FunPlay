@@ -15,6 +15,7 @@ import android.widget.RelativeLayout;
 import com.flyco.tablayout.listener.OnTabSelectListener;
 import com.fun_play.app.UI.Study.activity.AndroidFamilyActivity;
 import com.fun_play.app.UI.Study.activity.GankActivity;
+import com.fun_play.app.UI.Study.activity.NavigationSystemActivity;
 import com.fun_play.app.UI.Study.activity.NewsDetailActivity;
 import com.fun_play.app.UI.Study.adapter.NewsListAdapter;
 import com.fun_play.app.datamanager.bean.study.FilterBean;
@@ -291,6 +292,7 @@ public class StudyFragment extends BaseFragment<StudyViewModel, FragmentStudyBin
                     UIManager.switcherAnimHorizontal(getActivity(), AndroidFamilyActivity.class);
                     break;
                 case R.id.ll_category_two:
+                    UIManager.switcherAnimHorizontal(getActivity(), NavigationSystemActivity.class);
                     break;
                 case R.id.ll_category_three:
                     UIManager.switcherAnimHorizontal(getActivity(),GankActivity.class);

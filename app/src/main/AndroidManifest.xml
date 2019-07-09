@@ -55,6 +55,12 @@
            android:name=".UI.Study.activity.AndroidFamilyActivity"
            android:screenOrientation="portrait"/>
 
+        <!--体系导航界面-->
+        <activity
+            android:name=".UI.Study.activity.NavigationSystemActivity"
+            android:screenOrientation="portrait"/>
+
+
     </application>
 
 </manifest>

@@ -17,6 +17,7 @@ public class Constant {
     public static final String Movie = "休息视频";
     public static final String Source = "拓展资源";
     public static final String GANK_CALA = "gank_cala";
+    public static final String Android = "Android";
 
 
     public static final String NewsCommonId = "SYLB10,SYDT10";

@@ -18,6 +18,9 @@ public class UrlStore {
     //玩安卓轮播图接口
     public final static String WAN_ANDROID_BANNER = "banner/json";
 
+    //玩安卓数据列表接口
+    public final static String WAN_ANDROID_LIST = "article/list/{cid}/json";
+
     //干活
     public final static String API_GANKIO = "https://gank.io/api/";
 
@@ -32,6 +35,12 @@ public class UrlStore {
 
     //新闻详情接口
     public static final String Get_News_Detail = "ipadtestdoc";
+
+    //获取体系数据接口
+    public static final String Get_System_Data = "tree/json";
+
+    //获取导航数据接口
+    public static final String Get_Navigation_Data = "navi/json";
 
 }
 
