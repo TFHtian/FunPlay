@@ -35,4 +35,13 @@
     <string name="study_system">知识体系</string>
     <string name="study_navigation">数据导航</string>
 
+    <!--watch-->
+    <string name="welfare">美图</string>
+    <string name="film_showing">热映榜</string>
+    <string name="film_coming">即将上映</string>
+    <string name="director">导演：</string>
+    <string name="actors">主演：</string>
+    <string name="movie_type">类型：</string>
+    <string name="movie_score">评分：</string>
+
 </resources>

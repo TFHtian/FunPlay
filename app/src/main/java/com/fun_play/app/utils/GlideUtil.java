@@ -1,6 +1,7 @@
 package com.fun_play.app.utils;
 
 import android.content.Context;
+import android.databinding.BindingAdapter;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -73,6 +74,22 @@ public class GlideUtil {
                 .placeholder(R.drawable.stackblur_default)
                 .transition(DrawableTransitionOptions.withCrossFade(500))
                 .transform(new BlurTransformation(10, 1))
+                .into(imageView);
+    }
+
+    @BindingAdapter({"android:displayFadeImage", "android:defaultPicType"})
+    public static void displayFadeImage(ImageView imageView, String url, int defaultPicType) {
+        displayEspImage(url, imageView, defaultPicType);
+    }
+
+    @BindingAdapter("android:showMovieImg")
+    public static void showMovieImg(ImageView imageView, String url) {
+        Glide.with(imageView.getContext())
+                .load(url)
+                .transition(DrawableTransitionOptions.withCrossFade(500))
+                .override((int) CommonUtils.getDimens(R.dimen.movie_detail_width), (int) CommonUtils.getDimens(R.dimen.movie_detail_height))
+                .placeholder(getDefaultPic(0))
+                .error(getDefaultPic(0))
                 .into(imageView);
     }
 

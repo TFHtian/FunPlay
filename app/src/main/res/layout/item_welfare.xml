@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="bean"
+            type="com.fun_play.app.datamanager.bean.study.GankIoDataBean.ResultBean" />
+
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card_view:cardUseCompatPadding="true"
+        card_view:cardCornerRadius="@dimen/dp_5"
+        card_view:cardBackgroundColor="@color/colorWhite"
+        android:foreground="?android:attr/selectableItemBackground">
+        <ImageView
+            android:id="@+id/iv_welfare"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:defaultPicType="@{1}"
+            android:displayFadeImage="@{bean.url}"
+            android:scaleType="centerCrop" />
+    </android.support.v7.widget.CardView>
+
+</layout>

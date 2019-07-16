@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="bean"
+            type="com.fun_play.app.datamanager.bean.watch.ComingFilmBean.MoviecomingsBean" />
+
+    </data>
+
+    <android.support.v7.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/cv_top_movie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_5"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        app:cardCornerRadius="@dimen/dp_3"
+        app:cardElevation="@dimen/dp_3">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/ll_item_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/im_cover"
+                android:layout_height="135dp"
+                android:layout_width="match_parent"
+                android:showMovieImg='@{bean.image}'
+                app:riv_corner_radius_top_left="@dimen/dp_3"
+                app:riv_corner_radius_top_right="@dimen/dp_3"
+                android:src="@drawable/img_default_movie"
+                android:scaleType="fitXY"
+                app:riv_oval="false"/>
+
+            <LinearLayout
+                android:gravity="center"
+                android:padding="@dimen/dp_5"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite">
+                <TextView
+                    android:gravity="center"
+                    android:text="@{bean.title}"
+                    style="@style/text_tab_style"
+                    android:textSize="@dimen/text_12sp" />
+                <TextView
+                    android:gravity="center"
+                    android:text="@{bean.releaseDate}"
+                    style="@style/text_tab_style"
+                    android:textSize="@dimen/text_12sp"
+                    android:layout_marginTop="@dimen/dp_2"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+</layout>

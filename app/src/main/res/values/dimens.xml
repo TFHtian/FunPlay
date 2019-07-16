@@ -25,6 +25,8 @@
     <dimen name="home_banner_margin">40dp</dimen>
     <dimen name="home_category_height">55dp</dimen>
 
+    <dimen name="movie_detail_width">125dp</dimen>
+    <dimen name="movie_detail_height">165dp</dimen>
 
     <dimen name="px_0">0px</dimen>
     <dimen name="dp_0">0dp</dimen>
@@ -128,6 +130,7 @@
     <dimen name="dp_98">98dp</dimen>
     <dimen name="dp_99">99dp</dimen>
     <dimen name="dp_100">100dp</dimen>
+    <dimen name="dp_126">126dp</dimen>
 
     <!--*********************************-->
 

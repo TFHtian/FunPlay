@@ -15,6 +15,9 @@ public class UrlStore {
     //玩安卓
     public final static String API_WAN_ANDROID = "https://www.wanandroid.com/";
 
+    //电影接口
+    public final static String API_FILM = "https://api-m.mtime.cn/";
+
     //玩安卓轮播图接口
     public final static String WAN_ANDROID_BANNER = "banner/json";
 
@@ -41,6 +44,15 @@ public class UrlStore {
 
     //获取导航数据接口
     public static final String Get_Navigation_Data = "navi/json";
+
+    //获取美图接口
+    public static final String Get_Welfare_Data = "data/{type}/{pre_page}/{page}";
+
+    //获取热映榜接口
+    public static final String Get_Film_Showing_Data = "Showtime/LocationMovies.api?";
+
+    //获取即将上映接口
+    public static final String Get_Film_Coming_Data = "Movie/MovieComingNew.api?";
 
 }
 
