@@ -58,15 +58,10 @@ public class GlideUtil {
                 .load(url)
                 .placeholder(R.drawable.shape_bg_loading)
                 .error(R.drawable.shape_bg_loading)
-//                .skipMemoryCache(true) //跳过内存缓存
-//                .crossFade(1000)
-//                .diskCacheStrategy(DiskCacheStrategy.SOURCE)// 缓存图片源文件（解决加载gif内存溢出问题）
-//                .into(new GlideDrawableImageViewTarget(imageView, 1));
                 .into(imageView);
     }
 
-    public static void displayGaussian(Context context, String url, ImageView imageView) {
-        // "23":模糊度；"4":图片缩放4倍后再进行模糊
+    public static void displayNews(Context context, String url, ImageView imageView) {
         Glide.with(context)
                 .load(url)
                 .transition(DrawableTransitionOptions.withCrossFade())
@@ -74,6 +69,17 @@ public class GlideUtil {
                 .placeholder(R.drawable.stackblur_default)
                 .transition(DrawableTransitionOptions.withCrossFade(500))
                 .transform(new BlurTransformation(10, 1))
+                .into(imageView);
+    }
+
+    private static void displayGaussian(Context context, String url, ImageView imageView) {
+        Glide.with(context)
+                .load(url)
+                .transition(DrawableTransitionOptions.withCrossFade())
+                .error(R.drawable.stackblur_default)
+                .placeholder(R.drawable.stackblur_default)
+                .transition(DrawableTransitionOptions.withCrossFade(500))
+                .transform(new BlurTransformation(50, 8))
                 .into(imageView);
     }
 
@@ -89,6 +95,23 @@ public class GlideUtil {
                 .transition(DrawableTransitionOptions.withCrossFade(500))
                 .override((int) CommonUtils.getDimens(R.dimen.movie_detail_width), (int) CommonUtils.getDimens(R.dimen.movie_detail_height))
                 .placeholder(getDefaultPic(0))
+                .error(getDefaultPic(0))
+                .into(imageView);
+    }
+
+    @BindingAdapter("android:showImgBg")
+    public static void showImgBg(ImageView imageView, String url) {
+        displayGaussian(imageView.getContext(), url, imageView);
+    }
+
+    @BindingAdapter({"android:imageUrl", "android:imageWidthDp", "android:imageHeightDp"})
+    public static void imageUrl(ImageView imageView, String url, int imageWidthDp, int imageHeightDp) {
+        Glide.with(imageView.getContext())
+                .load(url)
+                .override(DensityUtil.dip2px(imageWidthDp), DensityUtil.dip2px(imageHeightDp))
+                .transition(DrawableTransitionOptions.withCrossFade(500))
+                .placeholder(getDefaultPic(3))
+                .centerCrop()
                 .error(getDefaultPic(0))
                 .into(imageView);
     }

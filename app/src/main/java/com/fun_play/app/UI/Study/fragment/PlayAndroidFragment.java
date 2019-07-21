@@ -60,7 +60,7 @@ public class PlayAndroidFragment extends BaseFragment<PlayAndroidViewModel, Frag
         bindingView.header.setColorSchemeColors(getResources().getColor(R.color.colorTheme));
         bindingView.refreshLayout.setRefreshFooter(new CustomFooter(getActivity()));
 
-        wanAndroidListAdapter = new WanAndroidListAdapter();
+        wanAndroidListAdapter = new WanAndroidListAdapter(getActivity());
         bindingView.recyclerWan.setLayoutManager(new LinearLayoutManager(getActivity()));
         bindingView.recyclerWan.setAdapter(wanAndroidListAdapter);
     }

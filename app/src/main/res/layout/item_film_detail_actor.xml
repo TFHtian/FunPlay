@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="personBean"
+            type="com.fun_play.app.datamanager.bean.watch.FilmDetailBean.ActorsBean" />
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="@dimen/dp_100"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground">
+        <com.makeramen.roundedimageview.RoundedImageView
+            app:riv_oval="false"
+            android:id="@+id/im_cover"
+            android:scaleType="fitXY"
+            android:layout_height="125dp"
+            android:layout_width="@dimen/dp_100"
+            android:imageWidthDp="@{100}"
+            android:imageHeightDp="@{125}"
+            android:imageUrl='@{personBean.img}'
+            android:src="@drawable/img_default_movie"
+            app:riv_corner_radius_top_left="@dimen/dp_3"
+            app:riv_corner_radius_top_right="@dimen/dp_3"
+            app:riv_corner_radius_bottom_left="@dimen/dp_3"
+            app:riv_corner_radius_bottom_right="@dimen/dp_3"/>
+        <TextView
+            style="@style/text_title_style"
+            android:textSize="@dimen/text_14sp"
+            android:text="@{personBean.name}"
+            android:layout_marginTop="@dimen/dp_2"/>
+        <TextView
+            style="@style/text_tab_style"
+            android:textSize="@dimen/text_13sp"
+            android:text="@{personBean.roleName}"
+            android:layout_marginTop="@dimen/dp_4"/>
+    </LinearLayout>
+
+</layout>

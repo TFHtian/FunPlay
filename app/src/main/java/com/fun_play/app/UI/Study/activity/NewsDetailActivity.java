@@ -69,7 +69,7 @@ public class NewsDetailActivity extends BaseActivity<NewsDetailViewModel, Activi
         showContentView();
         //封面图
         if (newsArticleBean!=null&&newsArticleBean.getBody()!=null){
-            GlideUtil.displayGaussian(NewsDetailActivity.this,newsArticleBean.getBody().getThumbnail(), bindingView.imCover);
+            GlideUtil.displayNews(NewsDetailActivity.this,newsArticleBean.getBody().getThumbnail(), bindingView.imCover);
             bindingView.setDetailBean(newsArticleBean.getBody());
             initWebView(newsArticleBean.getBody().getText());
         }

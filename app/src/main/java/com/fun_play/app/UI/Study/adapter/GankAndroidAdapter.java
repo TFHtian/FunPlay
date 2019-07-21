@@ -1,5 +1,6 @@
 package com.fun_play.app.UI.Study.adapter;
 
+import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.View;
@@ -11,8 +12,15 @@ import com.fun_play.app.base.BaseAdapter.BaseRecyclerViewAdapter;
 import com.fun_play.app.base.BaseAdapter.BaseRecyclerViewHolder;
 import com.fun_play.app.databinding.StudyGankItemBinding;
 import com.fun_play.app.utils.GlideUtil;
+import com.fun_play.app.view.WebView.WebViewActivity;
 
 public class GankAndroidAdapter extends BaseRecyclerViewAdapter<GankIoDataBean.ResultBean> {
+
+    private Activity activity;
+
+    public GankAndroidAdapter(Activity activity) {
+        this.activity = activity;
+    }
 
     @NonNull
     @Override
@@ -39,6 +47,13 @@ public class GankAndroidAdapter extends BaseRecyclerViewAdapter<GankIoDataBean.R
             }
             binding.setResultsBean(object);
             binding.executePendingBindings();
+
+            binding.cardItem.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    WebViewActivity.loadUrl(activity,  object.getUrl(), object.getDesc());
+                }
+            });
         }
     }
 

@@ -57,7 +57,7 @@ public class LargeAndroidFragment extends BaseFragment<GankViewModel, FragmentLa
     public void initView(){
         bindingView.header.setColorSchemeColors(getResources().getColor(R.color.colorTheme));
         bindingView.refreshLayout.setRefreshFooter(new CustomFooter(getActivity()));
-        gankAndroidAdapter = new GankAndroidAdapter();
+        gankAndroidAdapter = new GankAndroidAdapter(getActivity());
         bindingView.recyclerLarge.setLayoutManager(new LinearLayoutManager(getActivity()));
         bindingView.recyclerLarge.setAdapter(gankAndroidAdapter);
     }

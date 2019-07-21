@@ -10,15 +10,22 @@ import android.view.View;
 import com.fun_play.app.ModelCallback.Watch.WelfareCallback;
 import com.fun_play.app.R;
 import com.fun_play.app.UI.Watch.adapter.WelfareAdapter;
+import com.fun_play.app.base.BaseAdapter.OnItemClickListener;
+import com.fun_play.app.base.BaseApp.Constant;
 import com.fun_play.app.base.BaseUI.BaseFragment;
 import com.fun_play.app.databinding.FragmentWelfareBinding;
 import com.fun_play.app.datamanager.bean.study.GankIoDataBean;
+import com.fun_play.app.utils.UIManager;
 import com.fun_play.app.view.CustomFooter;
+import com.fun_play.app.view.PicturePreview.PicturePreviewActivity;
 import com.fun_play.app.viewmodel.watch.WelfareViewModel;
 import com.github.ybq.android.spinkit.style.DoubleBounce;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class WelfareFragment extends BaseFragment<WelfareViewModel, FragmentWelfareBinding> implements WelfareCallback {
 
@@ -80,6 +87,23 @@ public class WelfareFragment extends BaseFragment<WelfareViewModel, FragmentWelf
             public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
                 isLoadData = false;
                 viewModel.laodWelfare();
+            }
+        });
+
+        welfareAdapter.setOnItemClickListener(new OnItemClickListener<GankIoDataBean.ResultBean>() {
+            @Override
+            public void onClick(GankIoDataBean.ResultBean resultBean, int position) {
+                List<String> pictureList = new ArrayList<>();
+                List<GankIoDataBean.ResultBean> resultList  = welfareAdapter.getData();
+                for (GankIoDataBean.ResultBean resultBeans : resultList){
+                    pictureList.add(resultBeans.getUrl());
+                }
+                if (pictureList.size()>0){
+                    Bundle bundle = new Bundle();
+                    bundle.putInt(Constant.Position,position);
+                    bundle.putStringArrayList(Constant.PictureList, (ArrayList<String>) pictureList);
+                    UIManager.switcherNormal(getActivity(), PicturePreviewActivity.class,bundle);
+                }
             }
         });
     }

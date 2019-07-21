@@ -114,6 +114,11 @@ public abstract class BaseActivity<VM extends AndroidViewModel, SV extends ViewD
         });
     }
 
+
+    public void setToolBarBackground(int colorId){
+        mBaseBinding.toolBar.setBackgroundColor(getResources().getColor(colorId));
+    }
+
     public void onBackClick(View view) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             finishAfterTransition();

@@ -43,5 +43,25 @@
     <string name="actors">主演：</string>
     <string name="movie_type">类型：</string>
     <string name="movie_score">评分：</string>
+    <string name="movie_showing_time">上映时间：</string>
+    <string name="movie_time_length">片长：</string>
+    <string name="minute">分</string>
+    <string name="film_introduce">简介</string>
+    <string name="film_actor">演职员</string>
+    <string name="film_director">导演</string>
+    <string name="film_box_office">票房</string>
+    <string name="today_office">今日售票（万）</string>
+    <string name="total_office">累计票房（亿）</string>
+    <string name="office_rank">累计排名</string>
+    <string name="string_empty">""</string>
+    <string name="trailer">预告片</string>
+    <string name="stills">剧照</string>
+
+    <!--web-->
+    <string name="actionbar_webview_share">分享</string>
+    <string name="actionbar_webview_cope">复制链接</string>
+    <string name="actionbar_webview_open">浏览器打开</string>
+    <string name="actionbar_webview_refresh">刷新</string>
+    <string name="copy_success">复制成功</string>
 
 </resources>

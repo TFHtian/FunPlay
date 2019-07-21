@@ -42,6 +42,7 @@ import io.reactivex.disposables.Disposable;
 
 public class HomeMainActivity extends BaseActivity<HomeMainViewModel, ActivityHomeMainBinding> implements View.OnClickListener, ViewPager.OnPageChangeListener{
 
+    public static boolean isLaunch;
     private FrameLayout llTitleMenu;
     private Toolbar toolbar;
     private NavigationView navView;
@@ -55,6 +56,7 @@ public class HomeMainActivity extends BaseActivity<HomeMainViewModel, ActivityHo
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_main);
+        isLaunch = true;
         showContentView();
         isHideToolBar(true);
         bindingView.setViewModel(viewModel);

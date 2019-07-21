@@ -23,6 +23,14 @@ public class Constant {
 
     public static final String NewsCommonId = "SYLB10,SYDT10";
     public static final String AID = "aid";
+    public static final String FilmBean = "FilmBean";
+    public static final String mTitle = "mTitle";
+    public static final String mUrl = "mUrl";
+    public static final String isTitleFix = "isTitleFix";
+    public static final String Net_Error = "当前网络不可用，请检查你的网络设置";
+    public static final String PictureList = "pictureList";
+    public static final String Position = "position";
+
 
     //新闻tab
     public static List<NewFilterBean> getNewsTab(){

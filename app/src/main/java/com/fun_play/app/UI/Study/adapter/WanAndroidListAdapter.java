@@ -1,5 +1,6 @@
 package com.fun_play.app.UI.Study.adapter;
 
+import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.View;
@@ -10,8 +11,15 @@ import com.fun_play.app.base.BaseAdapter.BaseRecyclerViewAdapter;
 import com.fun_play.app.base.BaseAdapter.BaseRecyclerViewHolder;
 import com.fun_play.app.databinding.WanAndroidItemBinding;
 import com.fun_play.app.datamanager.bean.study.WanAndroidData;
+import com.fun_play.app.view.WebView.WebViewActivity;
 
 public class WanAndroidListAdapter extends BaseRecyclerViewAdapter<WanAndroidData> {
+
+    private Activity activity;
+
+    public WanAndroidListAdapter(Activity activity) {
+        this.activity = activity;
+    }
 
     @NonNull
     @Override
@@ -30,6 +38,12 @@ public class WanAndroidListAdapter extends BaseRecyclerViewAdapter<WanAndroidDat
         public void onBindViewHolder(WanAndroidData object, int position) {
             binding.setWanAndroidBean(object);
             binding.executePendingBindings();
+            binding.llItem.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    WebViewActivity.loadUrl(activity, object.getLink(), object.getTitle());
+                }
+            });
         }
     }
 

@@ -103,4 +103,7 @@ dependencies {
     //列表item样式
     implementation 'com.nineoldandroids:library:2.4.0'
 
+    //PhotoView
+    implementation 'com.github.chrisbanes:PhotoView:2.1.4'
+
 }

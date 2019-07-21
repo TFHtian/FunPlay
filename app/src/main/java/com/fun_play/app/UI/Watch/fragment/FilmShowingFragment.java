@@ -1,17 +1,24 @@
 package com.fun_play.app.UI.Watch.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.fun_play.app.ModelCallback.Watch.FilmShowingCallback;
 import com.fun_play.app.R;
+import com.fun_play.app.UI.Watch.activity.FilmDetailActivity;
 import com.fun_play.app.UI.Watch.adapter.FilmShowingAdapter;
+import com.fun_play.app.base.BaseApp.Constant;
 import com.fun_play.app.base.BaseUI.BaseFragment;
 import com.fun_play.app.databinding.FragmentFilmShowingBinding;
 import com.fun_play.app.datamanager.bean.watch.FilmItemBean;
+import com.fun_play.app.utils.CommonUtils;
 import com.fun_play.app.view.CustomFooter;
 import com.fun_play.app.viewmodel.watch.FilmShowingViewModel;
 import com.github.ybq.android.spinkit.style.Pulse;
@@ -81,6 +88,19 @@ public class FilmShowingFragment extends BaseFragment<FilmShowingViewModel, Frag
                 viewModel.loadFilmShowing();
             }
         });
+
+        //item监听
+        filmShowingAdapter.setListener(new FilmShowingAdapter.OnClickListener() {
+            @Override
+            public void onClick(FilmItemBean bean, ImageView imageView) {
+                Intent intent = new Intent(getActivity(), FilmDetailActivity.class);
+                intent.putExtra(Constant.FilmBean, bean);
+                ActivityOptionsCompat options =
+                        ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), imageView, CommonUtils.getString(R.string.transition_movie_img));//与xml文件对应
+                ActivityCompat.startActivity(getActivity(), intent, options.toBundle());
+            }
+        });
+
     }
 
     private void initAnimation() {

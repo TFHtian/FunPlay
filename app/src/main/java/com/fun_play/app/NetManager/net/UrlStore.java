@@ -18,6 +18,9 @@ public class UrlStore {
     //电影接口
     public final static String API_FILM = "https://api-m.mtime.cn/";
 
+    //电影详情接口
+    public final static String API_MTIME_TICKET = "https://ticket-api-m.mtime.cn/";
+
     //玩安卓轮播图接口
     public final static String WAN_ANDROID_BANNER = "banner/json";
 
@@ -53,6 +56,11 @@ public class UrlStore {
 
     //获取即将上映接口
     public static final String Get_Film_Coming_Data = "Movie/MovieComingNew.api?";
+
+    //获取电影详情接口
+    public static final String Get_Film_Detail = "movie/detail.api?locationId=561";
+
+
 
 }
 

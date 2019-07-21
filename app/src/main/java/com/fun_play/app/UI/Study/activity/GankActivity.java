@@ -49,7 +49,7 @@ public class GankActivity extends BaseActivity<GankViewModel, ActivityGankBindin
         isHideToolBar(false);
         setCenterTitle(getResources().getString(R.string.gank_title));
 
-        gankAndroidAdapter = new GankAndroidAdapter();
+        gankAndroidAdapter = new GankAndroidAdapter(this);
         bindingView.recyclerGanHuo.setLayoutManager(new LinearLayoutManager(this));
         bindingView.recyclerGanHuo.setAdapter(gankAndroidAdapter);
         bindingView.header.setColorSchemeColors(getResources().getColor(R.color.colorTheme));

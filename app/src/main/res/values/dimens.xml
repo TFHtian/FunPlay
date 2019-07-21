@@ -28,6 +28,10 @@
     <dimen name="movie_detail_width">125dp</dimen>
     <dimen name="movie_detail_height">165dp</dimen>
 
+    <dimen name="nav_bar_height">56dp</dimen>
+    <dimen name="nav_bar_height_more">58dp</dimen>
+    <dimen name="base_header_activity_slide_more">45dp</dimen>
+
     <dimen name="px_0">0px</dimen>
     <dimen name="dp_0">0dp</dimen>
     <dimen name="dp_1">1dp</dimen>
@@ -130,6 +134,7 @@
     <dimen name="dp_98">98dp</dimen>
     <dimen name="dp_99">99dp</dimen>
     <dimen name="dp_100">100dp</dimen>
+    <dimen name="dp_120">120dp</dimen>
     <dimen name="dp_126">126dp</dimen>
 
     <!--*********************************-->

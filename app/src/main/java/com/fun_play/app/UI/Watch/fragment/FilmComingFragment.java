@@ -1,18 +1,28 @@
 package com.fun_play.app.UI.Watch.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.fun_play.app.ModelCallback.Watch.FilmComingCallback;
 import com.fun_play.app.R;
+import com.fun_play.app.UI.Watch.activity.FilmDetailActivity;
 import com.fun_play.app.UI.Watch.adapter.FilmComingAdapter;
+import com.fun_play.app.base.BaseApp.Constant;
 import com.fun_play.app.base.BaseUI.BaseFragment;
 import com.fun_play.app.databinding.FragmentFilmComingBinding;
 import com.fun_play.app.datamanager.bean.watch.ComingFilmBean;
+import com.fun_play.app.datamanager.bean.watch.FilmItemBean;
+import com.fun_play.app.utils.CommonUtils;
 import com.fun_play.app.view.CustomFooter;
 import com.fun_play.app.viewmodel.watch.FilmComingViewModel;
 import com.github.ybq.android.spinkit.style.ThreeBounce;
@@ -80,6 +90,32 @@ public class FilmComingFragment extends BaseFragment<FilmComingViewModel,Fragmen
             public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
                 isLoadData = false;
                 viewModel.loadFilmComing();
+            }
+        });
+
+        //item监听
+        filmComingAdapter.setListener(new FilmComingAdapter.OnClickListener() {
+            @Override
+            public void onClick(ComingFilmBean.MoviecomingsBean bean, ImageView imageView) {
+                FilmItemBean filmItemBean = new FilmItemBean();
+                filmItemBean.setId(bean.getId());
+                filmItemBean.setDN(bean.getDirector());
+                filmItemBean.setTCn(bean.getTitle());
+                filmItemBean.setTEn(bean.getReleaseDate());
+                filmItemBean.setMovieType(bean.getType());
+                filmItemBean.setImg(bean.getImage());
+                filmItemBean.setLocationName(bean.getLocationName());
+                String actor1 = bean.getActor1();
+                String actor2 = bean.getActor2();
+                if (!TextUtils.isEmpty(actor2)) {
+                    actor1 = actor1 + " / " + actor2;
+                }
+                filmItemBean.setActors(actor1);
+                Intent intent = new Intent(getActivity(), FilmDetailActivity.class);
+                intent.putExtra(Constant.FilmBean, filmItemBean);
+                ActivityOptionsCompat options =
+                        ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), imageView, CommonUtils.getString(R.string.transition_movie_img));//与xml文件对应
+                ActivityCompat.startActivity(getActivity(), intent, options.toBundle());
             }
         });
     }

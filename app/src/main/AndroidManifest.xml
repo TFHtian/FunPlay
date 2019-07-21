@@ -60,6 +60,21 @@
             android:name=".UI.Study.activity.NavigationSystemActivity"
             android:screenOrientation="portrait"/>
 
+        <!--电影详情界面-->
+        <activity
+            android:name=".UI.Watch.activity.FilmDetailActivity"
+            android:screenOrientation="portrait"/>
+
+        <!--web页面-->
+        <activity
+            android:name=".view.WebView.WebViewActivity"
+            android:screenOrientation="portrait"/>
+
+        <!--图片预览界面-->
+        <activity
+            android:name=".view.PicturePreview.PicturePreviewActivity"
+            android:screenOrientation="portrait"/>
+
 
     </application>
 
