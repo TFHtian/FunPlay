@@ -86,7 +86,6 @@ public class HomeMainActivity extends BaseActivity<HomeMainViewModel, ActivityHo
         vpContent = bindingView.include.vpContent;
         tvTitleStudy = bindingView.include.tvTitleStudy;
         tvTitleWatch = bindingView.include.tvTitleWatch;
-        tvTitleListen = bindingView.include.tvTitleListen;
         tvTitlePersonal = bindingView.include.tvTitlePersonal;
     }
 
@@ -95,7 +94,6 @@ public class HomeMainActivity extends BaseActivity<HomeMainViewModel, ActivityHo
         llTitleMenu.setOnClickListener(this);
         tvTitleStudy.setOnClickListener(this);
         tvTitleWatch.setOnClickListener(this);
-        tvTitleListen.setOnClickListener(this);
         tvTitlePersonal.setOnClickListener(this);
     }
 
@@ -117,13 +115,12 @@ public class HomeMainActivity extends BaseActivity<HomeMainViewModel, ActivityHo
         ArrayList<Fragment> mFragmentList = new ArrayList<>();
         mFragmentList.add(new StudyFragment());
         mFragmentList.add(new WatchFragment());
-        mFragmentList.add(new ListenFragment());
         mFragmentList.add(new PersonalFragment());
         // 注意使用的是：getSupportFragmentManager
         MyFragmentPagerAdapter adapter = new MyFragmentPagerAdapter(getSupportFragmentManager(), mFragmentList);
         vpContent.setAdapter(adapter);
         // 设置ViewPager最大缓存的页面个数(cpu消耗少)
-        vpContent.setOffscreenPageLimit(3);
+        vpContent.setOffscreenPageLimit(2);
         vpContent.addOnPageChangeListener(this);
 
         setSupportActionBar(toolbar);
@@ -177,14 +174,9 @@ public class HomeMainActivity extends BaseActivity<HomeMainViewModel, ActivityHo
                     setCurrentItem(1);
                 }
                 break;
-            case R.id.tv_title_listen:
+            case R.id.tv_title_personal:
                 if (vpContent.getCurrentItem() != 2) {
                     setCurrentItem(2);
-                }
-                break;
-            case R.id.tv_title_personal:
-                if (vpContent.getCurrentItem() != 3) {
-                    setCurrentItem(3);
                 }
                 break;
             default:
@@ -197,7 +189,6 @@ public class HomeMainActivity extends BaseActivity<HomeMainViewModel, ActivityHo
         boolean isStudy = false,isWatch = false,isListen = false,isPersonal = false;
         Typeface studyType = Typeface.defaultFromStyle(Typeface.NORMAL);
         Typeface watchType = Typeface.defaultFromStyle(Typeface.NORMAL);
-        Typeface listenType = Typeface.defaultFromStyle(Typeface.NORMAL);
         Typeface personalType = Typeface.defaultFromStyle(Typeface.NORMAL);
         switch (position) {
             case 0:
@@ -209,10 +200,6 @@ public class HomeMainActivity extends BaseActivity<HomeMainViewModel, ActivityHo
                 watchType = Typeface.defaultFromStyle(Typeface.BOLD);
                 break;
             case 2:
-                isListen = true;
-                listenType = Typeface.defaultFromStyle(Typeface.BOLD);
-                break;
-            case 3:
                 isPersonal = true;
                 personalType = Typeface.defaultFromStyle(Typeface.BOLD);
                 break;
@@ -226,8 +213,6 @@ public class HomeMainActivity extends BaseActivity<HomeMainViewModel, ActivityHo
         tvTitleStudy.setTypeface(studyType);
         tvTitleWatch.setSelected(isWatch);
         tvTitleWatch.setTypeface(watchType);
-        tvTitleListen.setSelected(isListen);
-        tvTitleListen.setTypeface(listenType);
         tvTitlePersonal.setSelected(isPersonal);
         tvTitlePersonal.setTypeface(personalType);
     }
@@ -245,30 +230,10 @@ public class HomeMainActivity extends BaseActivity<HomeMainViewModel, ActivityHo
             case 2:
                 setCurrentItem(2);
                 break;
-            case 3:
-                setCurrentItem(3);
-                break;
             default:
                 break;
         }
     }
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.home_main, menu);
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        switch (item.getItemId()) {
-//            case R.id.action_add:
-//                ToastUtil.showToast("不给你看");
-//                return true;
-//            default:
-//                return super.onOptionsItemSelected(item);
-//        }
-//    }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {

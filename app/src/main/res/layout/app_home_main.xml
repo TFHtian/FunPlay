@@ -75,15 +75,6 @@
 
                     <TextView
                         android:gravity="center"
-                        android:id="@+id/tv_title_listen"
-                        style="@style/text_tab_style"
-                        android:textSize="@dimen/text_18sp"
-                        android:text="@string/home_top_title_listen"
-                        android:textColor="@drawable/home_top_tab_color"
-                        android:layout_width="@dimen/home_main_top_tab_width"/>
-
-                    <TextView
-                        android:gravity="center"
                         android:id="@+id/tv_title_personal"
                         style="@style/text_tab_style"
                         android:textSize="@dimen/text_18sp"

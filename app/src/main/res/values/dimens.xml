@@ -15,7 +15,7 @@
     <dimen name="loading_view_margin_bottom">15dp</dimen>
     <dimen name="loading_view_margin_left">10dp</dimen>
 
-    <dimen name="home_main_top_tab_width">65dp</dimen>
+    <dimen name="home_main_top_tab_width">80dp</dimen>
     <dimen name="home_nav_header_height">173dp</dimen>
     <dimen name="home_user_head_image">60dp</dimen>
     <dimen name="home_nav_item_icon">20dp</dimen>

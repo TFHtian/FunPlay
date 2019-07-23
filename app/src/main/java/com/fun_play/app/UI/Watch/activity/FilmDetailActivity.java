@@ -26,6 +26,7 @@ import com.fun_play.app.utils.DensityUtil;
 import com.fun_play.app.utils.UIManager;
 import com.fun_play.app.utils.decoration.SpacesItemDecoration;
 import com.fun_play.app.view.PicturePreview.PicturePreviewActivity;
+import com.fun_play.app.view.WebView.WebViewActivity;
 import com.github.ybq.android.spinkit.style.WanderingCubes;
 
 import java.util.ArrayList;
@@ -126,6 +127,7 @@ public class FilmDetailActivity extends BaseHeaderActivity<HeaderFilmDetailBindi
                 filmDetailViewManager.isShowVideo.set(true);
                 DensityUtil.formatHeight(bindingContentView.ivVideo, DensityUtil.getDisplayWidth() - DensityUtil.dip2px(40), (640f / 360), 3);
                 DensityUtil.setViewMargin(bindingContentView.ivVideo, true, 10, 10, 10, 10);
+                bindingContentView.ivVideo.setOnClickListener(view -> WebViewActivity.loadUrl(this, video.getHightUrl(), video.getTitle(), true));
             }else {
                 isShowVideo.set(false);
                 filmDetailViewManager.isShowVideo.set(false);

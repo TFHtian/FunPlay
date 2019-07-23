@@ -17,7 +17,8 @@
             <com.yanzhenjie.recyclerview.swipe.SwipeMenuRecyclerView
                 android:id="@+id/recycle_navigation_content"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:background="@color/colorWhite"/>
         </LinearLayout>
         <LinearLayout
             android:orientation="vertical"

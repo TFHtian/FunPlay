@@ -4,12 +4,13 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/color_page_bg">
+        android:background="@color/colorWhite">
         <com.yanzhenjie.recyclerview.swipe.SwipeMenuRecyclerView
+            android:visibility="gone"
             android:id="@+id/recycle_system"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"/>
+            android:background="@color/colorWhite" />
         <LinearLayout
             android:orientation="vertical"
             android:id="@+id/ll_loading"

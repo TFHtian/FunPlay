@@ -52,10 +52,21 @@ public class SystemAdapter extends BaseRecyclerViewAdapter<SystemItemBean> {
                 return textView;
             }
         });
-        flowlayoutHot.setOnTagClickListener((view, position, parent) -> {
-            SystemItemBean.ChildrenBean childrenBean = children.get(position);
-
-            return true;
-        });
+            flowlayoutHot.setOnTagClickListener((view, position, parent) -> {
+                SystemItemBean.ChildrenBean childrenBean = children.get(position);
+                listener.onClick(dataBean,childrenBean.getId());
+                return true;
+            });
     }
+
+    private OnClickListener listener;
+
+    public interface OnClickListener {
+        void onClick(SystemItemBean bean, int cid);
+    }
+
+    public void setListener(OnClickListener listener) {
+        this.listener = listener;
+    }
+
 }

@@ -7,10 +7,13 @@ import android.view.View;
 
 import com.fun_play.app.ModelCallback.Study.SystemCallback;
 import com.fun_play.app.R;
+import com.fun_play.app.UI.Study.activity.SystemDetailActivity;
 import com.fun_play.app.UI.Study.adapter.SystemAdapter;
+import com.fun_play.app.base.BaseApp.Constant;
 import com.fun_play.app.base.BaseUI.BaseFragment;
 import com.fun_play.app.databinding.FragmentSystemBinding;
 import com.fun_play.app.datamanager.bean.study.SystemItemBean;
+import com.fun_play.app.utils.UIManager;
 import com.fun_play.app.viewmodel.study.SystemViewModel;
 import com.github.ybq.android.spinkit.style.Wave;
 
@@ -29,6 +32,7 @@ public class SystemFragment extends BaseFragment<SystemViewModel,FragmentSystemB
         showContentView();
         initAnimation();
         initView();
+        initListener();
         // 准备就绪
         mIsPrepared = true;
         viewModel.setCallback(this);
@@ -54,6 +58,18 @@ public class SystemFragment extends BaseFragment<SystemViewModel,FragmentSystemB
         systemAdapter = new SystemAdapter();
         bindingView.recycleSystem.setLayoutManager(new LinearLayoutManager(getActivity()));
         bindingView.recycleSystem.setAdapter(systemAdapter);
+    }
+
+    public void initListener(){
+        systemAdapter.setListener(new SystemAdapter.OnClickListener() {
+            @Override
+            public void onClick(SystemItemBean bean, int cid) {
+                Bundle bundle = new Bundle();
+                bundle.putInt(Constant.CID,cid);
+                bundle.putSerializable(Constant.SystemItemBean,bean);
+                UIManager.switcherAnimHorizontal(getActivity(), SystemDetailActivity.class,bundle);
+            }
+        });
     }
 
     //初始加载动画

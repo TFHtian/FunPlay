@@ -45,6 +45,9 @@ public class UrlStore {
     //获取体系数据接口
     public static final String Get_System_Data = "tree/json";
 
+    //获取体系分类列表接口
+    public static final String GetS_System_List = "article/list/{page}/json";
+
     //获取导航数据接口
     public static final String Get_Navigation_Data = "navi/json";
 
@@ -60,7 +63,11 @@ public class UrlStore {
     //获取电影详情接口
     public static final String Get_Film_Detail = "movie/detail.api?locationId=561";
 
+    //搜索接口
+    public static final String Search_Result = "search/query/{keyWord}/category/{type}/count/20/page/{p}";
 
+    //获取搜索热词接口
+    public static final String Get_Hot_Key = "hotkey/json";
 
 }
 

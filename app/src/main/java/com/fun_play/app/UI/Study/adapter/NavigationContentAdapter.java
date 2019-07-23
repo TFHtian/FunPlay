@@ -13,6 +13,7 @@ import com.fun_play.app.databinding.ItemNavigationContentBinding;
 import com.fun_play.app.datamanager.bean.study.ArticlesBean;
 import com.fun_play.app.datamanager.bean.study.NavigationBean;
 import com.fun_play.app.utils.CommonUtils;
+import com.fun_play.app.view.WebView.WebViewActivity;
 import com.zhy.view.flowlayout.FlowLayout;
 import com.zhy.view.flowlayout.TagAdapter;
 import com.zhy.view.flowlayout.TagFlowLayout;
@@ -56,7 +57,8 @@ public class NavigationContentAdapter extends BaseRecyclerViewAdapter<Navigation
         flowlayoutHot.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
-
+                ArticlesBean bean = beanList.get(position);
+                WebViewActivity.loadUrl(view.getContext(), bean.getLink(), bean.getTitle());
                 return true;
             }
         });

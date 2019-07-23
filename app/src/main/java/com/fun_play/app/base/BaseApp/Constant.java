@@ -20,10 +20,14 @@ public class Constant {
     public static final String Android = "Android";
     public static final String Welfare = "福利";
 
-
+    public static final String SEARCH_HISTORY = "search_history";
     public static final String NewsCommonId = "SYLB10,SYDT10";
     public static final String AID = "aid";
+    public static final String CID = "cid";
+    public static final String CATEGORY_ID = "CategoryId";
     public static final String FilmBean = "FilmBean";
+    public static final String SystemItemBean = "SystemItemBean";
+    public static final String CATEGORY_NAME = "CategoryName";
     public static final String mTitle = "mTitle";
     public static final String mUrl = "mUrl";
     public static final String isTitleFix = "isTitleFix";

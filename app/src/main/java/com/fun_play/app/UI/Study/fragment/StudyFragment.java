@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import com.flyco.tablayout.listener.OnTabSelectListener;
+import com.fun_play.app.UI.Main.SearchActivity;
 import com.fun_play.app.UI.Study.activity.AndroidFamilyActivity;
 import com.fun_play.app.UI.Study.activity.GankActivity;
 import com.fun_play.app.UI.Study.activity.NavigationSystemActivity;
@@ -123,6 +124,8 @@ public class StudyFragment extends BaseFragment<StudyViewModel, FragmentStudyBin
     }
 
     public void initListener(){
+        //搜索监听
+        bindingView.linSearch.setOnClickListener(listener);
         //类别监听
         bindingView.include.llCategoryOne.setOnClickListener(listener);
         bindingView.include.llCategoryTwo.setOnClickListener(listener);
@@ -288,6 +291,9 @@ public class StudyFragment extends BaseFragment<StudyViewModel, FragmentStudyBin
         @Override
         protected void onNoDoubleClick(View v) {
             switch (v.getId()){
+                case R.id.lin_search:
+                    UIManager.switcherNormal(getActivity(), SearchActivity.class);
+                    break;
                 case R.id.ll_category_one:
                     UIManager.switcherAnimHorizontal(getActivity(), AndroidFamilyActivity.class);
                     break;

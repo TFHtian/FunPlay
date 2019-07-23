@@ -24,7 +24,7 @@
                 android:id="@+id/ll_header_bg"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/home_nav_header_height"
-                android:background="@drawable/ic_nav_bg_drawerlayout"
+                android:background="@drawable/home_drawer_layout"
                 android:gravity="bottom"
                 android:orientation="vertical"
                 android:theme="@style/ThemeOverlay.AppCompat.Dark">

@@ -34,6 +34,10 @@
     <string name="string_dian">&#160;·&#160;</string>
     <string name="study_system">知识体系</string>
     <string name="study_navigation">数据导航</string>
+    <string name="string_system_category_size">共%s个子分类</string>
+    <string name="search_hint">输入搜索内容</string>
+    <string name="hot_search">热门搜索</string>
+    <string name="history_search">历史搜索</string>
 
     <!--watch-->
     <string name="welfare">美图</string>
