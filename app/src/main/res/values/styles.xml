@@ -106,6 +106,14 @@
 
     </style>
 
+    <style name="more_icon_right">
+        <item name="android:layout_width">@dimen/dp_9</item>
+        <item name="android:layout_height">@dimen/dp_16</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:src">@drawable/go_in</item>
+    </style>
+
     <!--bottom dialog-->
     <style name="BottomSheet.StyleDialog" parent="BottomSheet.Dialog">
         <item name="android:backgroundDimAmount">0.5</item>

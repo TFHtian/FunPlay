@@ -68,4 +68,14 @@
     <string name="actionbar_webview_refresh">刷新</string>
     <string name="copy_success">复制成功</string>
 
+    <!--personal-->
+    <string name="video_local">本地视频</string>
+    <string name="video_download">下载</string>
+    <string name="video_collection">收藏</string>
+    <string name="video_history">观看记录</string>
+    <string name="study_progress">学习进程</string>
+    <string name="study_collection">学习收藏</string>
+    <string name="study_record">学习记录</string>
+    <string name="feed_back">反馈</string>
+
 </resources>

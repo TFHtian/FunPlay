@@ -1,6 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        release {
+            storeFile file('../FunPlayKey/funplay.jks')
+            storePassword 'funplay2019'
+            keyAlias = 'funplay'
+            keyPassword 'funplay2019'
+        }
+    }
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.fun_play.app"
@@ -15,6 +23,16 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+            android.applicationVariants.all { variant ->
+                variant.outputs.all {
+                    outputFileName = "funplay${defaultConfig.versionName}.apk"
+                }
+            }
+        }
+        debug {
+            minifyEnabled false
+            signingConfig signingConfigs.release
         }
     }
 
